@@ -42,6 +42,9 @@ namespace Gisha.BallGame.Core
 
         private void SetFingerWorldPositon()
         {
+            if (EnhancedTouch.Touch.activeTouches.Count == 0)
+                return;
+
             var screenPosition = EnhancedTouch.Touch.activeTouches[0].screenPosition;
             var ray = Camera.main.ScreenPointToRay(screenPosition);
 

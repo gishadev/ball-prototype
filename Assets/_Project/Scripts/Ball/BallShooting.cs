@@ -10,11 +10,14 @@ namespace Gisha.BallGame.Ball
         private IWorldTouchController _worldTouchController;
         private PlayerBall _playerBall;
         private GameDataSO _gameData;
+        private MassAccumulator _massAccumulator;
 
         private void Awake()
         {
             _playerBall = GetComponent<PlayerBall>();
             _gameData = ResourceGetter.GetGameData();
+            _massAccumulator = new MassAccumulator(_gameData.MassAccumulationSpeed, _playerBall,
+                _gameData.MinAccumulationMass);
         }
 
         private void Start()
@@ -30,17 +33,43 @@ namespace Gisha.BallGame.Ball
             _worldTouchController.WorldTouchUp -= OnWorldWorldTouchUp;
         }
 
+        private void Update()
+        {
+            if (_worldTouchController.IsFingerDown)
+                _massAccumulator.AccumulateMassInTick();
+        }
+
         private void OnWorldWorldTouchDown(Vector3 pos)
         {
+            _massAccumulator.ResetMass();
         }
 
         private void OnWorldWorldTouchUp(Vector3 pos)
         {
-            var dir = (pos - transform.position).normalized;
+            var projMass = CalculateProjectileMass(_massAccumulator.Mass);
+            Shoot(pos, projMass);
+
+            _playerBall.AddMass(-_massAccumulator.Mass);
+        }
+
+        private void Shoot(Vector3 touchPos, float shootMass)
+        {
+            var dir = (touchPos - transform.position).normalized;
             dir.y = 0f;
             var rotation = Quaternion.LookRotation(dir);
 
-            Instantiate(_gameData.ProjectilePrefab, transform.position, rotation);
+            var proj = Instantiate(_gameData.ProjectilePrefab, transform.position, rotation);
+            proj.transform.localScale = Vector3.one * shootMass;
+        }
+
+        private float CalculateProjectileMass(float entryMass)
+        {
+            var maxedMass = entryMass + _gameData.ProjectileAdditionalMass;
+
+            if (_playerBall.CurrentMass > maxedMass)
+                return maxedMass;
+
+            return entryMass;
         }
     }
 }

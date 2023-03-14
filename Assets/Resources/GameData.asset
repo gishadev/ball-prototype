@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d3a1753413a994287a9dcb2dda73e5, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  initialShootMass: 0.1
+  initialShootMass: 0.5
   projectilePrefab: {fileID: 5305899724830401704, guid: a8d95896ab8d34a42a216093e9166089, type: 3}
   projectileFlySpeed: 25
+  projectileAdditionalMass: 0.5
