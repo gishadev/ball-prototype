@@ -41,6 +41,9 @@ namespace Gisha.BallGame.UI
 
         private void Rescale()
         {
+            if (_massAccumulator.MaxMass == 0f)
+                return;
+            
             float xScale = _massAccumulator.Mass / _massAccumulator.MaxMass;
             accumulationBarTrans.localScale = new Vector3(xScale, accumulationBarTrans.localScale.y,
                 accumulationBarTrans.localScale.z);
