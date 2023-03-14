@@ -8,6 +8,7 @@ namespace Gisha.BallGame.Ball
         private readonly PlayerBall _playerBall;
         private readonly float _minMass;
         public float Mass { get; private set; }
+        public float MaxMass => _playerBall.CurrentMass;
 
         public MassAccumulator(float speed, PlayerBall playerBall, float minMass)
         {

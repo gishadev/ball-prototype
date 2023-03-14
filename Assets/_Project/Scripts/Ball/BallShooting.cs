@@ -12,6 +12,8 @@ namespace Gisha.BallGame.Ball
         private GameDataSO _gameData;
         private MassAccumulator _massAccumulator;
 
+        public MassAccumulator MassAccumulator => _massAccumulator;
+
         private void Awake()
         {
             _playerBall = GetComponent<PlayerBall>();
@@ -36,20 +38,20 @@ namespace Gisha.BallGame.Ball
         private void Update()
         {
             if (_worldTouchController.IsFingerDown)
-                _massAccumulator.AccumulateMassInTick();
+                MassAccumulator.AccumulateMassInTick();
         }
 
         private void OnWorldWorldTouchDown(Vector3 pos)
         {
-            _massAccumulator.ResetMass();
+            MassAccumulator.ResetMass();
         }
 
         private void OnWorldWorldTouchUp(Vector3 pos)
         {
-            var projMass = CalculateProjectileMass(_massAccumulator.Mass);
+            var projMass = CalculateProjectileMass(MassAccumulator.Mass);
             Shoot(pos, projMass);
 
-            _playerBall.AddMass(-_massAccumulator.Mass);
+            _playerBall.AddMass(-MassAccumulator.Mass);
         }
 
         private void Shoot(Vector3 touchPos, float shootMass)
