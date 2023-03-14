@@ -6,7 +6,14 @@ namespace Gisha.BallGame.Core
     public class GameDataSO : ScriptableObject
     {
         [SerializeField] private float initialShootMass = 0.1f;
+        [Header("Projectile")]
+        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private float projectileFlySpeed = 1f;
 
         public float InitialShootMass => initialShootMass;
+
+        public float ProjectileFlySpeed => projectileFlySpeed;
+
+        public GameObject ProjectilePrefab => projectilePrefab;
     }
 }

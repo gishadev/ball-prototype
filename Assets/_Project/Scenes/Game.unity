@@ -135,9 +135,10 @@ GameObject:
   - component: {fileID: 309775247}
   - component: {fileID: 309775246}
   - component: {fileID: 309775245}
+  - component: {fileID: 309775248}
   m_Layer: 0
   m_Name: Capsule (11)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +222,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309775243}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &309775248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309775243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &387136218
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,9 +246,10 @@ GameObject:
   - component: {fileID: 387136222}
   - component: {fileID: 387136221}
   - component: {fileID: 387136220}
+  - component: {fileID: 387136223}
   m_Layer: 0
   m_Name: Capsule (10)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,6 +333,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387136218}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &387136223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387136218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &647262921
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,9 +357,10 @@ GameObject:
   - component: {fileID: 647262924}
   - component: {fileID: 647262923}
   - component: {fileID: 647262922}
+  - component: {fileID: 647262926}
   m_Layer: 0
   m_Name: Capsule (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +444,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647262926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647262921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679371136
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,9 +628,10 @@ GameObject:
   - component: {fileID: 715512462}
   - component: {fileID: 715512461}
   - component: {fileID: 715512460}
+  - component: {fileID: 715512464}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -675,6 +715,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715512464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715512459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &723943278
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,9 +739,10 @@ GameObject:
   - component: {fileID: 723943281}
   - component: {fileID: 723943280}
   - component: {fileID: 723943279}
+  - component: {fileID: 723943283}
   m_Layer: 0
   m_Name: Capsule (8)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,6 +826,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &723943283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723943278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &759323773
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,9 +894,10 @@ GameObject:
   - component: {fileID: 808523539}
   - component: {fileID: 808523538}
   - component: {fileID: 808523537}
+  - component: {fileID: 808523541}
   m_Layer: 0
   m_Name: Capsule (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -915,6 +981,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808523541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808523536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &909073100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,9 +1136,10 @@ GameObject:
   - component: {fileID: 946716156}
   - component: {fileID: 946716155}
   - component: {fileID: 946716154}
+  - component: {fileID: 946716158}
   m_Layer: 0
   m_Name: Capsule (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1144,6 +1223,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946716158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946716153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &949695994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,9 +1462,10 @@ GameObject:
   - component: {fileID: 1045542757}
   - component: {fileID: 1045542756}
   - component: {fileID: 1045542755}
+  - component: {fileID: 1045542759}
   m_Layer: 0
   m_Name: Capsule (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1457,6 +1549,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045542759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045542754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1274188152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,9 +1573,10 @@ GameObject:
   - component: {fileID: 1274188155}
   - component: {fileID: 1274188154}
   - component: {fileID: 1274188153}
+  - component: {fileID: 1274188157}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,6 +1660,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274188157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274188152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1403762860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,9 +1684,10 @@ GameObject:
   - component: {fileID: 1403762863}
   - component: {fileID: 1403762862}
   - component: {fileID: 1403762861}
+  - component: {fileID: 1403762865}
   m_Layer: 0
   m_Name: Capsule (9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1653,6 +1771,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1403762865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403762860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502047943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,9 +1795,10 @@ GameObject:
   - component: {fileID: 1502047947}
   - component: {fileID: 1502047946}
   - component: {fileID: 1502047945}
+  - component: {fileID: 1502047948}
   m_Layer: 0
   m_Name: Capsule (13)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1751,6 +1882,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502047943}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1502047948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502047943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1636700238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,9 +2004,10 @@ GameObject:
   - component: {fileID: 1933808026}
   - component: {fileID: 1933808025}
   - component: {fileID: 1933808024}
+  - component: {fileID: 1933808028}
   m_Layer: 0
   m_Name: Capsule (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1947,6 +2091,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933808028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933808023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996041720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,9 +2115,10 @@ GameObject:
   - component: {fileID: 1996041724}
   - component: {fileID: 1996041723}
   - component: {fileID: 1996041722}
+  - component: {fileID: 1996041725}
   m_Layer: 0
   m_Name: Capsule (12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2045,6 +2202,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996041720}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1996041725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996041720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2016134595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,9 +2226,10 @@ GameObject:
   - component: {fileID: 2016134598}
   - component: {fileID: 2016134597}
   - component: {fileID: 2016134596}
+  - component: {fileID: 2016134600}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2143,6 +2313,18 @@ Transform:
   m_Father: {fileID: 679371137}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016134600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016134595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312f3be674e49a78f53d61e5aab541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082638827
 GameObject:
   m_ObjectHideFlags: 0

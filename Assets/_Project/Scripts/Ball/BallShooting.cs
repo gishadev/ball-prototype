@@ -7,12 +7,14 @@ namespace Gisha.BallGame.Ball
     [RequireComponent(typeof(PlayerBall))]
     public class BallShooting : MonoBehaviour
     {
-        private PlayerBall _playerBall;
         private IWorldTouchController _worldTouchController;
-        
+        private PlayerBall _playerBall;
+        private GameDataSO _gameData;
+
         private void Awake()
         {
             _playerBall = GetComponent<PlayerBall>();
+            _gameData = ResourceGetter.GetGameData();
         }
 
         private void Start()
@@ -24,17 +26,21 @@ namespace Gisha.BallGame.Ball
 
         private void OnDisable()
         {
-            
+            _worldTouchController.WorldTouchDown -= OnWorldWorldTouchDown;
+            _worldTouchController.WorldTouchUp -= OnWorldWorldTouchUp;
         }
 
         private void OnWorldWorldTouchDown(Vector3 pos)
         {
-            
         }
 
         private void OnWorldWorldTouchUp(Vector3 pos)
         {
-            Debug.DrawLine(transform.position, _worldTouchController.FingerWorldPosition, Color.red, 0.5f);
+            var dir = (pos - transform.position).normalized;
+            dir.y = 0f;
+            var rotation = Quaternion.LookRotation(dir);
+
+            Instantiate(_gameData.ProjectilePrefab, transform.position, rotation);
         }
     }
 }
