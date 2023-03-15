@@ -19,3 +19,4 @@ MonoBehaviour:
   projectileFlySpeed: 25
   projectileAdditionalMass: 0.2
   explosionRadiusMultiplier: 3.5
+  trophyWinRadius: 2

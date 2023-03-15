@@ -16,6 +16,8 @@ namespace Gisha.BallGame.Core
         [SerializeField] private float projectileAdditionalMass = 0.5f;
         [SerializeField] private float explosionRadiusMultiplier = 2f;
 
+        [Header("Other")]
+        [SerializeField] private float trophyWinRadius = 5f;
 
         public GameObject ProjectilePrefab => projectilePrefab;
         public float MinAccumulationMass => minAccumulationMass;
@@ -23,7 +25,7 @@ namespace Gisha.BallGame.Core
         public float ProjectileAdditionalMass => projectileAdditionalMass;
         public float MassAccumulationSpeed => massAccumulationSpeed;
         public float ExplosionRadiusMultiplier => explosionRadiusMultiplier;
-
         public float BallMovementSpeed => ballMovementSpeed;
+        public float TrophyWinRadius => trophyWinRadius;
     }
 }

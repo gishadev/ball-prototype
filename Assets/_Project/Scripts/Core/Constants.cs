@@ -6,5 +6,6 @@
         public const string EVENT_SHOOT = "shoot";
         public const string EVENT_PATH_CLEARED = "pathCleared";
         public const string EVENT_MASS_ZERO = "massZero";
+        public const string EVENT_NEAR_TROPHY = "nearTrophy";
     }
 }
