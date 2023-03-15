@@ -670,6 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759323774}
   - component: {fileID: 759323775}
+  - component: {fileID: 759323776}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -702,6 +703,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a91218366447fd91f0e608f5395e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &759323776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759323773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed05c45992bd4cee9fcb35ec8cc01ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &762349853
@@ -838,6 +851,8 @@ GameObject:
   m_Component:
   - component: {fileID: 909073101}
   - component: {fileID: 909073103}
+  - component: {fileID: 909073104}
+  - component: {fileID: 909073105}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -880,6 +895,33 @@ MonoBehaviour:
   lineRenderer: {fileID: 1551291110}
   trophyTrans: {fileID: 5460039032425021758}
   playerBallTrans: {fileID: 2082638838}
+--- !u!114 &909073104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909073100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9263687197f4fbdbc79a1c178936b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathLine: {fileID: 1551291110}
+--- !u!114 &909073105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909073100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd82c38c8b34a428ec5b06d90bd31c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBall: {fileID: 2082638834}
+  pathLine: {fileID: 1551291110}
 --- !u!1001 &934065349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,11 +1363,10 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -8.8, y: 1.1, z: -9.56}
-  - {x: 4.49, y: 1.1, z: 2.65}
   - {x: 16.53, y: 1.1, z: 8.06}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 3
+    widthMultiplier: 4
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1723,6 +1764,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7f5e89395a346e99bfb7f5db4cefff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2082638834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6261310817672407813, guid: 38cb2677e12152d419dd449722f0163f, type: 3}
+  m_PrefabInstance: {fileID: 6261310817334862069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b87a2c95b491fe4ba396cf7e77af581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2082638838 stripped

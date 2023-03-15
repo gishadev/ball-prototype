@@ -24,7 +24,7 @@ namespace Gisha.BallGame.Ball
             {
                 var obstacles = GetObstaclesAround();
                 foreach (var obstacle in obstacles)
-                    Destroy(obstacle.gameObject);
+                    obstacle.Die();
 
                 Destroy(gameObject);
             }

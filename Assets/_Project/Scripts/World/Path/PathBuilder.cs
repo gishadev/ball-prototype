@@ -34,6 +34,9 @@ namespace Gisha.BallGame.World
 
         private void GeneratePath()
         {
+            if (_pathLineBuilder == null)
+                _pathLineBuilder = new PathLineBuilder(points, lineRenderer);
+
             _pathLineBuilder.Build();
 
             var sPoint = points.FirstOrDefault(x => x is StartPoint);

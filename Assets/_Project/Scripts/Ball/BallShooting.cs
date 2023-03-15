@@ -52,6 +52,8 @@ namespace Gisha.BallGame.Ball
             Shoot(pos, projMass);
 
             _playerBall.AddMass(-MassAccumulator.Mass);
+            
+            EventManager.TriggerEvent(Constants.EVENT_SHOOT, null);
         }
 
         private void Shoot(Vector3 touchPos, float shootMass)

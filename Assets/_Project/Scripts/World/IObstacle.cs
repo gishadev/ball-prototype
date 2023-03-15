@@ -6,5 +6,7 @@ namespace Gisha.BallGame.World
     {
         Transform transform { get; }
         GameObject gameObject { get; }
+
+        void Die();
     }
 }
