@@ -1,5 +1,4 @@
-﻿using System;
-using Gisha.BallGame.Ball;
+﻿using Gisha.BallGame.Ball;
 using Gisha.BallGame.Core;
 using UnityEngine;
 

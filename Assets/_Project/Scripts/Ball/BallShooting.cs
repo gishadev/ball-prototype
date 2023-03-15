@@ -1,5 +1,4 @@
-﻿using System;
-using Gisha.BallGame.Core;
+﻿using Gisha.BallGame.Core;
 using UnityEngine;
 
 namespace Gisha.BallGame.Ball
@@ -52,7 +51,7 @@ namespace Gisha.BallGame.Ball
             Shoot(pos, projMass);
 
             _playerBall.AddMass(-MassAccumulator.Mass);
-            
+
             EventManager.TriggerEvent(Constants.EVENT_SHOOT, null);
         }
 

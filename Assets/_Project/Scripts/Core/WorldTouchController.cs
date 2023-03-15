@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 
@@ -12,6 +13,8 @@ namespace Gisha.BallGame.Core
         public event Action<Vector3> WorldTouchDown;
         public event Action<Vector3> WorldTouchUp;
 
+        private bool _isEnabled = true;
+
         public WorldTouchController()
         {
             Init();
@@ -24,17 +27,27 @@ namespace Gisha.BallGame.Core
 
             EnhancedTouch.Touch.onFingerDown += OnFingerDown;
             EnhancedTouch.Touch.onFingerUp += OnFingerUp;
+
+            EventManager.StartListening(Constants.EVENT_PATH_CLEARED, OnPathCleared);
         }
 
         public void Dispose()
         {
             EnhancedTouch.Touch.onFingerDown -= OnFingerDown;
             EnhancedTouch.Touch.onFingerUp -= OnFingerUp;
+
+            EventManager.StopListening(Constants.EVENT_PATH_CLEARED, OnPathCleared);
+        }
+
+        private void OnPathCleared(Dictionary<string, object> obj)
+        {
+            _isEnabled = false;
+            IsFingerDown = false;
         }
 
         public void Tick()
         {
-            if (!IsFingerDown)
+            if (!IsFingerDown || !_isEnabled)
                 return;
 
             SetFingerWorldPositon();
@@ -54,6 +67,9 @@ namespace Gisha.BallGame.Core
 
         private void OnFingerDown(EnhancedTouch.Finger finger)
         {
+            if (!_isEnabled)
+                return;
+
             IsFingerDown = true;
             SetFingerWorldPositon();
             WorldTouchDown?.Invoke(FingerWorldPosition);
@@ -61,6 +77,9 @@ namespace Gisha.BallGame.Core
 
         private void OnFingerUp(EnhancedTouch.Finger finger)
         {
+            if (!_isEnabled)
+                return;
+
             IsFingerDown = false;
             WorldTouchUp?.Invoke(FingerWorldPosition);
         }

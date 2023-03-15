@@ -28,10 +28,14 @@ namespace Gisha.BallGame.World
                 return;
 
             if (Vector3.Distance(playerBall.transform.position, transform.position) < _gameData.TrophyWinRadius)
-            {
-                EventManager.TriggerEvent(Constants.EVENT_NEAR_TROPHY, null);
-                _checkForPlayer = false;
-            }
+                CollectTrophy();
+        }
+
+        private void CollectTrophy()
+        {
+            EventManager.TriggerEvent(Constants.EVENT_NEAR_TROPHY, null);
+            transform.GetChild(0).gameObject.SetActive(false);
+            _checkForPlayer = false;
         }
 
         private void OnDrawGizmos()
