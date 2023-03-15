@@ -14,9 +14,11 @@ namespace Gisha.BallGame.World
 
         private PathLineBuilder _pathLineBuilder;
 
+        public PathPoint[] Points => points;
+
         private void Awake()
         {
-            _pathLineBuilder = new PathLineBuilder(points, lineRenderer);
+            _pathLineBuilder = new PathLineBuilder(Points, lineRenderer);
         }
 
         private void Start()
@@ -35,15 +37,15 @@ namespace Gisha.BallGame.World
         private void GeneratePath()
         {
             if (_pathLineBuilder == null)
-                _pathLineBuilder = new PathLineBuilder(points, lineRenderer);
+                _pathLineBuilder = new PathLineBuilder(Points, lineRenderer);
 
             _pathLineBuilder.Build();
 
-            var sPoint = points.FirstOrDefault(x => x is StartPoint);
+            var sPoint = Points.FirstOrDefault(x => x is StartPoint);
             playerBallTrans.position = new Vector3(sPoint.transform.position.x, playerBallTrans.transform.position.y,
                 sPoint.transform.position.z);
 
-            var fPoint = points.FirstOrDefault(x => x is FinishPoint);
+            var fPoint = Points.FirstOrDefault(x => x is FinishPoint);
             trophyTrans.position = new Vector3(fPoint.transform.position.x, trophyTrans.transform.position.y,
                 fPoint.transform.position.z);
         }

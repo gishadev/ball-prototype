@@ -15,14 +15,12 @@ namespace Gisha.BallGame.Core
 
             WorldTouchController = new WorldTouchController();
 
-            EventManager.StartListening(Constants.EVENT_PATH_CLEARED, Win);
         }
 
         private void OnDisable()
         {
             WorldTouchController.Dispose();
 
-            EventManager.StopListening(Constants.EVENT_PATH_CLEARED, Win);
         }
 
         private void Update()
@@ -32,7 +30,7 @@ namespace Gisha.BallGame.Core
 
         private void Win(Dictionary<string, object> dictionary)
         {
-            Debug.Log("You win!");
+           
         }
     }
 }
