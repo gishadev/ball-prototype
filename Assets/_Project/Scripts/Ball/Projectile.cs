@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Gisha.BallGame.Core;
 using Gisha.BallGame.World;
 using UnityEngine;
@@ -9,6 +9,9 @@ namespace Gisha.BallGame.Ball
     {
         private GameDataSO _gameData;
 
+        private float ProjectileRadius => transform.localScale.x / 2f;
+        private float ExplosionRadius => ProjectileRadius * _gameData.ExplosionRadiusMultiplier;
+        
         private void Awake()
         {
             _gameData = ResourceGetter.GetGameData();
@@ -17,9 +20,12 @@ namespace Gisha.BallGame.Ball
         private void Update()
         {
             MoveForward();
-            if (IsRaycastedObstacle(out var obstacle))
+            if (IsRaycastedObstacle())
             {
-                Destroy(obstacle.gameObject);
+                var obstacles = GetObstaclesAround();
+                foreach (var obstacle in obstacles)
+                    Destroy(obstacle.gameObject);
+
                 Destroy(gameObject);
             }
         }
@@ -29,17 +35,31 @@ namespace Gisha.BallGame.Ball
             transform.Translate(transform.forward * (_gameData.ProjectileFlySpeed * Time.deltaTime), Space.World);
         }
 
-        private bool IsRaycastedObstacle(out IObstacle obstacle)
+        private bool IsRaycastedObstacle()
         {
-            var colls = Physics.OverlapSphere(transform.position, transform.localScale.x);
+            var colls = Physics.OverlapSphere(transform.position, ProjectileRadius);
             foreach (var coll in colls)
-            {
-                if (coll.TryGetComponent(out obstacle))
+                if (coll.TryGetComponent(out IObstacle obstacle))
                     return true;
-            }
 
-            obstacle = null;
             return false;
+        }
+
+        private List<IObstacle> GetObstaclesAround()
+        {
+            List<IObstacle> result = new List<IObstacle>();
+            var colls = Physics.OverlapSphere(transform.position, ExplosionRadius);
+            foreach (var coll in colls)
+                if (coll.TryGetComponent(out IObstacle obstacle))
+                    result.Add(obstacle);
+
+            return result;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, ExplosionRadius);
         }
     }
 }

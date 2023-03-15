@@ -12,6 +12,7 @@ namespace Gisha.BallGame.Core
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float projectileFlySpeed = 1f;
         [SerializeField] private float projectileAdditionalMass = 0.5f;
+        [SerializeField] private float explosionRadiusMultiplier = 2f;
         
 
         public GameObject ProjectilePrefab => projectilePrefab;
@@ -19,5 +20,7 @@ namespace Gisha.BallGame.Core
         public float ProjectileFlySpeed => projectileFlySpeed;
         public float ProjectileAdditionalMass => projectileAdditionalMass;
         public float MassAccumulationSpeed => massAccumulationSpeed;
+
+        public float ExplosionRadiusMultiplier => explosionRadiusMultiplier;
     }
 }
