@@ -7,5 +7,8 @@
         public const string EVENT_PATH_CLEARED = "pathCleared";
         public const string EVENT_MASS_ZERO = "massZero";
         public const string EVENT_NEAR_TROPHY = "nearTrophy";
+        
+        public const string EVENT_WIN = "win";
+        public const string EVENT_LOSE = "lose";
     }
 }

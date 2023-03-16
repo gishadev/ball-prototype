@@ -23,6 +23,9 @@ namespace Gisha.BallGame.Ball
         {
             _currentMass = CurrentMass + value;
             StartCoroutine(ScalingRoutine());
+
+            if (_currentMass <= 0f)
+                EventManager.TriggerEvent(Constants.EVENT_MASS_ZERO, null);
         }
 
         private void ApplyMass(float mass)
