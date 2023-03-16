@@ -9,5 +9,6 @@ namespace Gisha.BallGame.World
 
         bool IsDied { get; }
         void Die();
+        void Infect(Material infectMaterial);
     }
 }

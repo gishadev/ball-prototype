@@ -1,9 +1,10 @@
 ﻿using Gisha.BallGame.Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gisha.BallGame.World
 {
-    public class DynamicObstacle : MonoBehaviour, IObstacle
+    public class DynamicObstacle : Obstacle
     {
         [SerializeField] private Vector3 moveDir;
         [SerializeField] private float moveSpeed = 2f;
@@ -12,7 +13,7 @@ namespace Gisha.BallGame.World
 
         private Vector3 _fPoint, _sPoint;
         private Vector3 _currentPoint;
-
+        
         private void Start()
         {
             moveDir.y = 0f;
@@ -31,7 +32,7 @@ namespace Gisha.BallGame.World
         }
 
 
-        public void Die()
+        public override void Die()
         {
             if (IsDied)
                 return;
@@ -41,7 +42,7 @@ namespace Gisha.BallGame.World
 
             IsDied = true;
         }
-
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.magenta;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Gisha.BallGame.Core;
 using Gisha.BallGame.World;
 using UnityEngine;
@@ -12,6 +11,7 @@ namespace Gisha.BallGame.Ball
 
         private GameDataSO _gameData;
 
+        private Material _projectileMaterial;
         private float ProjectileRadius => transform.localScale.x / 2f;
         private float ExplosionRadius => ProjectileRadius * _gameData.ExplosionRadiusMultiplier;
 
@@ -19,7 +19,8 @@ namespace Gisha.BallGame.Ball
         {
             _gameData = ResourceGetter.GetGameData();
             Destroy(gameObject, lifeTime);
-        }
+            _projectileMaterial = GetComponent<MeshRenderer>().material;
+;        }
 
         private void Update()
         {
@@ -29,7 +30,7 @@ namespace Gisha.BallGame.Ball
                 var obstacles = GetObstaclesAround();
                 
                 foreach (var obstacle in obstacles)
-                    obstacle.Die();
+                    obstacle.Infect(_projectileMaterial);
 
                 Destroy(gameObject);
             }
