@@ -42,6 +42,9 @@ namespace Gisha.BallGame.Ball
 
         private void OnPathCleared(Dictionary<string, object> obj)
         {
+            if (GameManager.Instance.IsLose)
+                return;
+
             StartCoroutine(MoveRoutine());
             _animator.SetBool("IsJumping", true);
         }

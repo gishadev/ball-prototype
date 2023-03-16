@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 
 namespace Gisha.BallGame.Core
@@ -27,22 +28,35 @@ namespace Gisha.BallGame.Core
 
             EnhancedTouch.Touch.onFingerDown += OnFingerDown;
             EnhancedTouch.Touch.onFingerUp += OnFingerUp;
-
-            EventManager.StartListening(Constants.EVENT_PATH_CLEARED, OnPathCleared);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            
+            EventManager.StartListening(Constants.EVENT_PATH_CLEARED, Disable);
+            EventManager.StartListening(Constants.EVENT_WIN, Disable);
+            EventManager.StartListening(Constants.EVENT_LOSE, Disable);
         }
+
+   
 
         public void Dispose()
         {
             EnhancedTouch.Touch.onFingerDown -= OnFingerDown;
             EnhancedTouch.Touch.onFingerUp -= OnFingerUp;
+            SceneManager.sceneLoaded -= OnSceneLoaded;
 
-            EventManager.StopListening(Constants.EVENT_PATH_CLEARED, OnPathCleared);
+            EventManager.StopListening(Constants.EVENT_PATH_CLEARED, Disable);
+            EventManager.StopListening(Constants.EVENT_WIN, Disable);
+            EventManager.StopListening(Constants.EVENT_LOSE, Disable);
         }
 
-        private void OnPathCleared(Dictionary<string, object> obj)
+        private void Disable(Dictionary<string, object> obj)
         {
             _isEnabled = false;
             IsFingerDown = false;
+        }
+        
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            _isEnabled = true;
         }
 
         public void Tick()

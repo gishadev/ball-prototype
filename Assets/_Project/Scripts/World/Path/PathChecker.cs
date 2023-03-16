@@ -41,9 +41,9 @@ namespace Gisha.BallGame.World
                     if (hitInfo.collider.TryGetComponent(out IObstacle obstacle))
                         return;
                 }
-
-                EventManager.TriggerEvent(Constants.EVENT_PATH_CLEARED, null);
             }
+
+            EventManager.TriggerEvent(Constants.EVENT_PATH_CLEARED, null);
         }
 
         private void OnDrawGizmos()

@@ -35,6 +35,9 @@ namespace Gisha.BallGame.Core
         public PathBuilder PathBuilder { get; private set; }
         public ScoreManager ScoreManager { get; private set; }
 
+        public bool IsLose => _isLose;
+        public bool IsWin => _isWin;
+
         private bool _isWin, _isLose;
 
         private void Awake()
@@ -76,7 +79,7 @@ namespace Gisha.BallGame.Core
 
         private void Win(Dictionary<string, object> dictionary)
         {
-            if (_isWin || _isLose)
+            if (IsWin || IsLose)
                 return;
 
             Debug.Log("You win!");
@@ -87,7 +90,7 @@ namespace Gisha.BallGame.Core
 
         private void Lose(Dictionary<string, object> obj)
         {
-            if (_isWin || _isLose)
+            if (IsWin || IsLose)
                 return;
 
             Debug.Log("You lose!");
