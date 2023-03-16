@@ -33,6 +33,7 @@ namespace Gisha.BallGame.Core
         public IWorldTouchController WorldTouchController { get; private set; }
         public PlayerBall PlayerBall { get; private set; }
         public PathBuilder PathBuilder { get; private set; }
+        public ScoreManager ScoreManager { get; private set; }
 
         private bool _isWin, _isLose;
 
@@ -43,7 +44,8 @@ namespace Gisha.BallGame.Core
             EventManager.StartListening(Constants.EVENT_NEAR_TROPHY, Win);
             EventManager.StartListening(Constants.EVENT_MASS_ZERO, Lose);
             SceneManager.sceneLoaded += OnSceneLoaded;
-
+            ScoreManager = new ScoreManager();
+            
             Init();
         }
 

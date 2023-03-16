@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Gisha.BallGame.Core;
 using Gisha.BallGame.World;
 using UnityEngine;
@@ -7,14 +8,17 @@ namespace Gisha.BallGame.Ball
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private float lifeTime = 5f;
+
         private GameDataSO _gameData;
 
         private float ProjectileRadius => transform.localScale.x / 2f;
         private float ExplosionRadius => ProjectileRadius * _gameData.ExplosionRadiusMultiplier;
-        
+
         private void Awake()
         {
             _gameData = ResourceGetter.GetGameData();
+            Destroy(gameObject, lifeTime);
         }
 
         private void Update()
@@ -23,6 +27,7 @@ namespace Gisha.BallGame.Ball
             if (IsRaycastedObstacle())
             {
                 var obstacles = GetObstaclesAround();
+                
                 foreach (var obstacle in obstacles)
                     obstacle.Die();
 

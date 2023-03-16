@@ -8,6 +8,8 @@ namespace Gisha.BallGame.World
         [SerializeField] private Vector3 moveDir;
         [SerializeField] private float moveSpeed = 2f;
 
+        public bool IsDied { get; private set; }
+
         private Vector3 _fPoint, _sPoint;
         private Vector3 _currentPoint;
 
@@ -28,10 +30,16 @@ namespace Gisha.BallGame.World
             transform.position = Vector3.MoveTowards(transform.position, _currentPoint, moveSpeed * Time.deltaTime);
         }
 
+
         public void Die()
         {
+            if (IsDied)
+                return;
+
             EventManager.TriggerEvent(Constants.EVENT_OBSTACLE_DIED, null);
             Destroy(gameObject);
+
+            IsDied = true;
         }
 
         private void OnDrawGizmos()
