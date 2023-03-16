@@ -6,9 +6,9 @@ namespace Gisha.BallGame.World
 {
     public class Trophy : MonoBehaviour
     {
-        [SerializeField] private PlayerBall playerBall;
-        private GameDataSO _gameData;
+        private PlayerBall PlayerBall => GameManager.Instance.PlayerBall;
 
+        private GameDataSO _gameData;
         private bool _checkForPlayer;
 
         private void Awake()
@@ -27,7 +27,7 @@ namespace Gisha.BallGame.World
             if (!_checkForPlayer)
                 return;
 
-            if (Vector3.Distance(playerBall.transform.position, transform.position) < _gameData.TrophyWinRadius)
+            if (Vector3.Distance(PlayerBall.transform.position, transform.position) < _gameData.TrophyWinRadius)
                 CollectTrophy();
         }
 

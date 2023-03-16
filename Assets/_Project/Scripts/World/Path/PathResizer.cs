@@ -8,15 +8,15 @@ namespace Gisha.BallGame.World
 {
     public class PathResizer : MonoBehaviour
     {
-        [SerializeField] private PlayerBall playerBall;
         [SerializeField] private LineRenderer pathLine;
         [SerializeField] private float widthChangingSpeed = 2f;
 
+        private PlayerBall PlayerBall => GameManager.Instance.PlayerBall;
         private float _width;
 
         private void Start()
         {
-            _width = playerBall.CurrentMass;
+            _width = PlayerBall.CurrentMass;
             ApplyWidth();
         }
 
@@ -37,9 +37,9 @@ namespace Gisha.BallGame.World
 
         private IEnumerator ResizingRoutine()
         {
-            while (_width > playerBall.CurrentMass)
+            while (_width > PlayerBall.CurrentMass)
             {
-                _width = Mathf.Lerp(_width, playerBall.CurrentMass, widthChangingSpeed * Time.deltaTime);
+                _width = Mathf.Lerp(_width, PlayerBall.CurrentMass, widthChangingSpeed * Time.deltaTime);
                 ApplyWidth();
                 yield return null;
             }

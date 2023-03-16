@@ -12,16 +12,23 @@ namespace Gisha.BallGame.UI
         private void OnEnable()
         {
             EventManager.StartListening(Constants.EVENT_LOSE, OnLose);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void OnDisable()
         {
             EventManager.StopListening(Constants.EVENT_LOSE, OnLose);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void OnLose(Dictionary<string, object> obj)
         {
             losePopup.SetActive(true);
+        }
+
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            losePopup.SetActive(false);
         }
 
         public void OnClick_Retry()

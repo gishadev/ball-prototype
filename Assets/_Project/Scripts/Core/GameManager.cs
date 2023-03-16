@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Gisha.BallGame.Ball;
+using Gisha.BallGame.World;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,19 +8,54 @@ namespace Gisha.BallGame.Core
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        [SerializeField] private GameObject playerPrefab;
+
+        private static GameManager _gameManager;
+
+        public static GameManager Instance
+        {
+            get
+            {
+                if (!_gameManager)
+                {
+                    _gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                    if (!_gameManager)
+                        Debug.LogError("No one active GameManager script in your scene.");
+                    else
+                        DontDestroyOnLoad(_gameManager);
+                }
+
+                return _gameManager;
+            }
+        }
+
         public IWorldTouchController WorldTouchController { get; private set; }
+        public PlayerBall PlayerBall { get; private set; }
+        public PathBuilder PathBuilder { get; private set; }
 
         private bool _isWin, _isLose;
 
         private void Awake()
         {
-            Instance = this;
-
             WorldTouchController = new WorldTouchController();
 
             EventManager.StartListening(Constants.EVENT_NEAR_TROPHY, Win);
             EventManager.StartListening(Constants.EVENT_MASS_ZERO, Lose);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+            Init();
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            PlayerBall = Instantiate(playerPrefab).GetComponent<PlayerBall>();
+            PathBuilder = FindObjectOfType<PathBuilder>();
         }
 
         private void OnDisable()
@@ -27,6 +64,7 @@ namespace Gisha.BallGame.Core
 
             EventManager.StopListening(Constants.EVENT_NEAR_TROPHY, Win);
             EventManager.StopListening(Constants.EVENT_MASS_ZERO, Lose);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void Update()

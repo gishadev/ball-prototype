@@ -9,9 +9,7 @@ namespace Gisha.BallGame.World
         [SerializeField] private PathPoint[] points;
         [SerializeField] private LineRenderer lineRenderer;
         [Space] [SerializeField] private Transform trophyTrans;
-        [SerializeField] private Transform playerBallTrans;
-
-
+        
         private PathLineBuilder _pathLineBuilder;
 
         public PathPoint[] Points => points;
@@ -40,11 +38,7 @@ namespace Gisha.BallGame.World
                 _pathLineBuilder = new PathLineBuilder(Points, lineRenderer);
 
             _pathLineBuilder.Build();
-
-            var sPoint = Points.FirstOrDefault(x => x is StartPoint);
-            playerBallTrans.position = new Vector3(sPoint.transform.position.x, playerBallTrans.transform.position.y,
-                sPoint.transform.position.z);
-
+            
             var fPoint = Points.FirstOrDefault(x => x is FinishPoint);
             trophyTrans.position = new Vector3(fPoint.transform.position.x, trophyTrans.transform.position.y,
                 fPoint.transform.position.z);

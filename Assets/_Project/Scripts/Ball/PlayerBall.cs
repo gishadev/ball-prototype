@@ -4,19 +4,23 @@ using UnityEngine;
 
 namespace Gisha.BallGame.Ball
 {
+    [RequireComponent(typeof(BallShooting))]
     public class PlayerBall : MonoBehaviour
     {
         [SerializeField] private float scalingSpeed = 2f;
 
-        private GameDataSO _gameData;
+        public BallShooting BallShooting => _ballShooting;
+        
         private float _currentMass;
+
+        private BallShooting _ballShooting;
 
         public float CurrentMass => _currentMass;
 
         private void Awake()
         {
-            _gameData = ResourceGetter.GetGameData();
             _currentMass = transform.localScale.x;
+            _ballShooting = GetComponent<BallShooting>();
         }
 
         public void AddMass(float value)

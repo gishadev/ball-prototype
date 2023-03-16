@@ -23,7 +23,10 @@ namespace Gisha.BallGame.World
 
         private async void CheckPath(Dictionary<string, object> obj)
         {
-            await Task.Delay(500);
+            await Task.Delay(100);
+            if (pathLine == null)
+                return;
+
             for (int i = 0; i < pathLine.positionCount - 1; i++)
             {
                 var fPos = pathLine.GetPosition(i);
